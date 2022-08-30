@@ -29,7 +29,9 @@ In this project, you'll apply what you've learned on data warehouses and AWS to 
 
 Since the core business process/metric is an user playing a song, the fact table should store the song play records with user/song identifier together with related information about the how and where the song is played. Based on the data and tables given in the project, the star schema looks like this
 
-##colocar aqui a imagem
+![Desenho dominio de dados-Página-12](https://user-images.githubusercontent.com/92527247/187541818-b17bd232-8f21-4924-80f4-edca31202a1b.jpg)
+
+
     
  - stage_event: copy data from s3 bucket
  - stage_song: copy data from s3 bucket
