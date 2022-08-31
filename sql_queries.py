@@ -15,6 +15,7 @@ song_table_drop = "DROP TABLE IF EXISTS songs"
 artist_table_drop = "DROP TABLE IF EXISTS artists"
 time_table_drop = "DROP TABLE IF EXISTS time"
 
+
 # CREATE TABLES
 
 staging_events_table_create= ("""
@@ -118,10 +119,10 @@ time_table_create = ("""
     ) diststyle key;
 """)
 
-# STAGING TABLES
+# STAGE TABLES
 
 staging_events_copy = ("""
-COPY staging_events
+COPY stage_event
 FROM {0}
 iam_role {1}
 region 'us-west-2'
@@ -132,7 +133,7 @@ TRUNCATECOLUMNS
 """).format(config['S3']['LOG_DATA'], config['IAM_ROLE']['ARN'], config['S3']['LOG_JSONPATH'])
 
 staging_songs_copy = ("""
-COPY staging_songs
+COPY stage_song
 FROM {0}
 iam_role {1}
 region 'us-west-2'
